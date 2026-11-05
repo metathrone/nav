@@ -11,19 +11,19 @@ on:
 jobs:
   sync_latest_from_upstream:
     name: Sync latest commits from upstream repo
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout target repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
       - name: Sync upstream changes
-        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.3
         with:
           upstream_sync_repo: liuzi6612/nav
           upstream_sync_branch: main
           target_sync_branch: main
-          target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+          target_repo_token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
           test_mode: false
