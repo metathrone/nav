@@ -28,8 +28,7 @@
   "outputDirectory": "dist/browser",
   "git": {
     "deploymentEnabled": {
-      "gh-pages": false,
-      "gh-page": false
+      "gh-pages": false
     }
   }
 }
